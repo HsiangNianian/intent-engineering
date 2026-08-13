@@ -68,15 +68,15 @@ This repository makes the missing decisions inspectable before execution:
 Intent is a control plane, not merely the final historical step. It constrains every layer,
 including any topology mutation performed by an emergent system.
 
-## Wish Engineering is not Whishlist Engineering
+## Wish Engineering is not Wishlist Engineering
 
 This repository owns **one wish becoming one approved intent contract**.
-[Whishlist Engineering](https://github.com/HsiangNianian/whishlist-engineering) is a separate
+[Wishlist Engineering](https://github.com/HsiangNianian/wishlist-engineering) is a separate
 project with a different job: maintaining a portfolio of wishes and coordinating the complete
 Agent Engineering Stack to turn them into evidence-backed outcomes.
 
 ```text
-Whishlist Engineering
+Wishlist Engineering
     │
     ├── accepts, clarifies, prioritizes, pauses, and revises wishes
     │
@@ -101,7 +101,7 @@ orchestrator.
 The distinction is intentional:
 
 - **Wish Engineering:** “What does this wish actually commit the system to?”
-- **Whishlist Engineering:** “Which wishes exist, which should run now, and how does the whole
+- **Wishlist Engineering:** “Which wishes exist, which should run now, and how does the whole
   system deliver them over time?”
 
 ## What belongs here
