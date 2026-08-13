@@ -100,8 +100,11 @@ Review the extracted specification before treating it as approved intent. Never 
 | --- | --- | --- | --- |
 | `OPENAI_API_KEY` | for `--goal` | none | OpenAI API authentication |
 | `OPENAI_MODEL` | no | `gpt-5.6` | model used only for draft extraction |
+| `OPENAI_BASEURL` | no | OpenAI SDK default | custom Responses-compatible API base URL |
 
 `--spec` compilation is deterministic and does not call an LLM.
+When `OPENAI_BASEURL` is unset or blank, the OpenAI SDK uses its default endpoint. A custom
+endpoint must implement the Responses API used by the extractor.
 
 ## Architecture
 
