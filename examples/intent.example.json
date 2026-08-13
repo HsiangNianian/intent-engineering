@@ -1,0 +1,31 @@
+{
+  "outcome": "Ship a correct contribution",
+  "success_criteria": [
+    "the relevant test suite passes",
+    "an independent reviewer accepts the change"
+  ],
+  "constraints": [
+    {
+      "rule": "do not change the public API",
+      "kind": "hard",
+      "rationale": "existing consumers must remain compatible"
+    }
+  ],
+  "priorities": [
+    {
+      "name": "correctness",
+      "weight": 1.0
+    },
+    {
+      "name": "cost",
+      "weight": 0.4
+    }
+  ],
+  "authority": [
+    {
+      "action": "publish",
+      "decision": "approval_required"
+    }
+  ],
+  "ambiguity_policy": "ask"
+}
