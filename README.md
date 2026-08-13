@@ -7,14 +7,56 @@ Intent Engineering studies how a human wish becomes an explicit, reviewable, and
 machine-operable contract for an agent system. The nickname **Wish Engineering** is
 deliberately theatrical. The implementation is deliberately not.
 
+This is a research and learning repository for Agent developers. It combines explanations,
+an executable reference prototype, and open questions so that claims about intent can be inspected
+in code instead of remaining architecture slogans.
+
 It is not wishful prompting and it is not permission for a model to decide what a person
-"really meant." The working artifact is an **intent specification**: an outcome, success
-criteria, constraints, priorities, authority boundaries, ambiguity policy, and required
-evidence. An intent compiler then projects that specification into obligations for the
-execution stack.
+"really meant."
+
+The working artifact is an **intent specification**: an outcome, success criteria, constraints,
+priorities, authority boundaries, ambiguity policy, and required evidence.
+
+An intent compiler projects it into obligations for the execution stack.
 
 > Status: **early research scaffold**. The schema and compiler are deliberately small and
 > unstable. Do not use them as a production authorization system.
+
+## Who this is for
+
+- **New Agent developers** can learn why a goal is not yet an executable instruction and trace one
+  approved specification through a small deterministic compiler.
+- **Experienced builders** can inspect contract boundaries before coupling intent to a graph,
+  harness, evaluator, or adaptive runtime.
+- **Frontier researchers** can use the schemas, experiments, and failure cases to challenge how
+  agents represent ambiguity, authority, evidence, and changing human goals.
+
+No previous familiarity with this repository series is required. Start with the learning path if
+the distinction between a request, an intent, and an execution plan is still unfamiliar.
+
+## Choose a path
+
+### Learn
+
+Read [the joke and the serious part](#the-joke-and-the-serious-part), then study the
+[stack boundary](#place-in-the-agent-engineering-stack).
+
+Use `examples/intent.example.json` to identify outcome, constraints, authority, ambiguity, and
+evidence in one concrete contract.
+
+### Build
+
+Run the deterministic `--spec` Quickstart, inspect the resulting lower-layer obligations, and then
+change one field at a time. The package is a reference prototype for learning and experiments, not
+a production authorization service.
+
+### Research
+
+Start from the [open research questions](#open-research-questions) and
+[roadmap](#roadmap).
+
+Add a falsifiable hypothesis, versioned fixture, explicit evaluation method, and recorded
+limitation before claiming that one intent representation is better than another.
 
 ## The joke, and the serious part
 
@@ -24,8 +66,10 @@ engineering—and finally, apparently, just make a wish.
 
 The joke lands because that is how agent systems are often sold. The serious problem begins
 immediately afterward: human wishes are incomplete, contradictory, value-laden, and rarely
-executable as written. A capable agent can follow every local instruction and still optimize
-the wrong outcome, cross an authority boundary, or declare victory without evidence.
+executable as written.
+
+A capable agent can follow every local instruction and still optimize the wrong outcome, cross an
+authority boundary, or declare victory without evidence.
 
 This repository treats a wish as **untrusted source material**, not as an executable command.
 Before work begins, it must become a contract that exposes:
@@ -39,10 +83,11 @@ Before work begins, it must become a contract that exposes:
 
 ## Why this repository exists
 
-Agent failures increasingly occur after a model has correctly completed its immediate task:
-the output is technically valid but does not achieve the desired outcome, a proxy metric is
-optimized at the expense of the real goal, or a consequential action is taken without the
-right authority. Better prompts alone do not resolve those failures.
+Agent failures increasingly occur after a model has correctly completed its immediate task. The
+output may be valid yet miss the desired outcome, optimize a proxy, or take a consequential action
+without the right authority.
+
+Better prompts alone do not resolve those failures.
 
 This repository makes the missing decisions inspectable before execution:
 
@@ -71,9 +116,10 @@ including any topology mutation performed by an emergent system.
 ## Wish Engineering is not Wishlist Engineering
 
 This repository owns **one wish becoming one approved intent contract**.
+
 [Wishlist Engineering](https://github.com/HsiangNianian/wishlist-engineering) is a separate
-project with a different job: maintaining a portfolio of wishes and coordinating the complete
-Agent Engineering Stack to turn them into evidence-backed outcomes.
+project. It maintains a portfolio of wishes and coordinates the Agent Engineering Stack toward
+evidence-backed outcomes.
 
 ```text
 Wishlist Engineering
@@ -93,10 +139,13 @@ Wishlist Engineering
 ```
 
 That repository is intended to become a **living system above the stack**, not an eighth synonym
-beside it. It should integrate the seven projects through versioned contracts and adapters,
-reuse their knowledge and implementations, and preserve their boundaries. It should not copy
-their README content into one large prompt or hide their responsibilities inside a monolithic
-orchestrator.
+beside it.
+
+It should integrate the seven projects through versioned contracts and adapters, reuse their
+knowledge and implementations, and preserve their boundaries.
+
+It should not copy their README content into one large prompt or hide their responsibilities inside
+a monolithic orchestrator.
 
 The distinction is intentional:
 
@@ -152,8 +201,12 @@ cp .env.example .env
 uv run intent-engineering --goal "Ship a correct contribution without changing the public API"
 ```
 
-Review the extracted specification before treating it as approved intent. Never commit
-`.env` or an API key.
+The current `--goal` path immediately compiles the model-produced draft and prints an execution
+contract. It does not expose the intermediate `IntentSpec` or enforce human approval.
+
+Treat that output as an unapproved demonstration artifact, not executable authority. The target
+workflow below requires review before compilation; use `--spec` for the current approved-input path.
+Never commit `.env` or an API key.
 
 ## Configuration
 
@@ -167,7 +220,7 @@ Review the extracted specification before treating it as approved intent. Never 
 When `OPENAI_BASEURL` is unset or blank, the OpenAI SDK uses its default endpoint. A custom
 endpoint must implement the Responses API used by the extractor.
 
-## Architecture
+## Target architecture
 
 ```text
 natural-language goal
@@ -189,8 +242,11 @@ IntentCompiler
         └── required evidence
 ```
 
-The compiler is deterministic by design. Probabilistic extraction is kept on the untrusted
-side of the approval boundary.
+The compiler is deterministic by design. The diagram shows the intended approval boundary, not a
+guarantee enforced by the current `--goal` command.
+
+Today, probabilistic extraction and compilation are connected for demonstration. A production
+adapter must expose the draft for review or reject it before any execution authority is derived.
 
 ## Repository tree
 
@@ -214,6 +270,19 @@ side of the approval boundary.
 
 The documentation and research directories are intentional roadmap placeholders. Each is
 tracked now so future work has an explicit home rather than accumulating in the package.
+
+## Open research questions
+
+- How can a system distinguish missing information from a genuine conflict between human values?
+- Which intent representation preserves meaning when compiled across prompts, context, tools,
+  loops, graphs, and adaptive topologies?
+- What evidence shows that an agent achieved the requested outcome rather than optimized a proxy?
+- How should an active system respond when a human revises intent after consequential work begins?
+- When does model-assisted clarification reduce ambiguity, and when does it merely conceal an
+  invented interpretation behind fluent language?
+
+These questions are invitations to design controlled studies. A useful contribution should expose
+its assumptions, comparison conditions, evidence, and failure cases.
 
 ## Roadmap
 
@@ -265,9 +334,10 @@ record the model and configuration used.
 
 ## Contributing
 
-Open an issue before changing the public contract or its terminology. Small documentation,
-test, and implementation improvements may go directly to a pull request. Include tests for
-behavior changes and keep live credentials out of fixtures.
+Open an issue before changing the public contract or its terminology. Small documentation, test,
+and implementation improvements may go directly to a pull request.
+
+Include tests for behavior changes and keep live credentials out of fixtures.
 
 ## License
 
