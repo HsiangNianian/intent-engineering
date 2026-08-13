@@ -1,7 +1,11 @@
-# Intent Engineering
+# Intent Engineering — a.k.a. Wish Engineering
 
-Intent Engineering studies how a human purpose becomes an explicit, reviewable, and
-machine-operable contract for an agent system.
+> **许愿工程:** make a wish, then require the machine to say what it thinks the wish means,
+> what it may do, what would count as granted, and when it must ask again.
+
+Intent Engineering studies how a human wish becomes an explicit, reviewable, and
+machine-operable contract for an agent system. The nickname **Wish Engineering** is
+deliberately theatrical. The implementation is deliberately not.
 
 It is not wishful prompting and it is not permission for a model to decide what a person
 "really meant." The working artifact is an **intent specification**: an outcome, success
@@ -11,6 +15,27 @@ execution stack.
 
 > Status: **early research scaffold**. The schema and compiler are deliberately small and
 > unstable. Do not use them as a production authorization system.
+
+## The joke, and the serious part
+
+**Wish Engineering** is partly a joke about the endless escalation of engineering labels:
+prompt engineering, context engineering, harness engineering, loop engineering, graph
+engineering—and finally, apparently, just make a wish.
+
+The joke lands because that is how agent systems are often sold. The serious problem begins
+immediately afterward: human wishes are incomplete, contradictory, value-laden, and rarely
+executable as written. A capable agent can follow every local instruction and still optimize
+the wrong outcome, cross an authority boundary, or declare victory without evidence.
+
+This repository treats a wish as **untrusted source material**, not as an executable command.
+Before work begins, it must become a contract that exposes:
+
+- the outcome being requested;
+- the evidence that would prove the wish was granted;
+- hard constraints and negotiable trade-offs;
+- actions the system may take autonomously;
+- actions that require approval or remain forbidden;
+- ambiguities that must be returned to the human instead of silently resolved.
 
 ## Why this repository exists
 
@@ -42,6 +67,42 @@ This repository makes the missing decisions inspectable before execution:
 
 Intent is a control plane, not merely the final historical step. It constrains every layer,
 including any topology mutation performed by an emergent system.
+
+## Wish Engineering is not Wishlist Engineering
+
+This repository owns **one wish becoming one approved intent contract**. A future
+`wishlist-engineering` repository should be a separate project with a different job:
+maintaining a portfolio of wishes and coordinating the complete Agent Engineering Stack to
+turn them into evidence-backed outcomes.
+
+```text
+Wishlist Engineering
+    │
+    ├── accepts, clarifies, prioritizes, pauses, and revises wishes
+    │
+    ├── Intent Engineering      compiles each wish into a contract
+    ├── Graph Engineering       organizes the work
+    ├── Loop Engineering        drives each worker toward evidence
+    ├── Harness Engineering     enforces execution and authority boundaries
+    ├── Context Engineering     assembles what each decision needs to know
+    ├── Prompt Engineering      renders model-facing instructions
+    └── Emergence Engineering   adapts organization within the contract
+                                 │
+                                 ▼
+                    evidence, outcome, or clarification
+```
+
+That future repository would be a **living system above the stack**, not an eighth synonym
+beside it. It should integrate the seven projects through versioned contracts and adapters,
+reuse their knowledge and implementations, and preserve their boundaries. It should not copy
+their README content into one large prompt or hide their responsibilities inside a monolithic
+orchestrator.
+
+The distinction is intentional:
+
+- **Wish Engineering:** “What does this wish actually commit the system to?”
+- **Wishlist Engineering:** “Which wishes exist, which should run now, and how does the whole
+  system deliver them over time?”
 
 ## What belongs here
 
