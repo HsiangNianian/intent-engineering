@@ -68,15 +68,15 @@ This repository makes the missing decisions inspectable before execution:
 Intent is a control plane, not merely the final historical step. It constrains every layer,
 including any topology mutation performed by an emergent system.
 
-## Wish Engineering is not Wishlist Engineering
+## Wish Engineering is not Whishlist Engineering
 
-This repository owns **one wish becoming one approved intent contract**. A future
-`wishlist-engineering` repository should be a separate project with a different job:
-maintaining a portfolio of wishes and coordinating the complete Agent Engineering Stack to
-turn them into evidence-backed outcomes.
+This repository owns **one wish becoming one approved intent contract**.
+[Whishlist Engineering](https://github.com/HsiangNianian/whishlist-engineering) is a separate
+project with a different job: maintaining a portfolio of wishes and coordinating the complete
+Agent Engineering Stack to turn them into evidence-backed outcomes.
 
 ```text
-Wishlist Engineering
+Whishlist Engineering
     │
     ├── accepts, clarifies, prioritizes, pauses, and revises wishes
     │
@@ -92,7 +92,7 @@ Wishlist Engineering
                     evidence, outcome, or clarification
 ```
 
-That future repository would be a **living system above the stack**, not an eighth synonym
+That repository is intended to become a **living system above the stack**, not an eighth synonym
 beside it. It should integrate the seven projects through versioned contracts and adapters,
 reuse their knowledge and implementations, and preserve their boundaries. It should not copy
 their README content into one large prompt or hide their responsibilities inside a monolithic
@@ -101,7 +101,7 @@ orchestrator.
 The distinction is intentional:
 
 - **Wish Engineering:** “What does this wish actually commit the system to?”
-- **Wishlist Engineering:** “Which wishes exist, which should run now, and how does the whole
+- **Whishlist Engineering:** “Which wishes exist, which should run now, and how does the whole
   system deliver them over time?”
 
 ## What belongs here
